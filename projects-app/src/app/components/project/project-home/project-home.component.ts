@@ -45,5 +45,8 @@ export class ProjectHomeComponent implements OnInit {
       this.dataSource.sort = this.sort;
     }
   }
+  onViewSelectionChange() {
+    
+  }
 
 }

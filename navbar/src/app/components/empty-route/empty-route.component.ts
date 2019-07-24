@@ -136,4 +136,7 @@ export class EmptyRouteComponent implements OnInit {
 			}
 		});
 	}
+	logout() {
+		
+	}
 }
