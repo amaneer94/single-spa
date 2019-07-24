@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src *  data: blob: 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * data: blob: 'unsafe-inline'; font-src * data: blob: 'unsafe-inline';">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My App</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="importmap-type" content="systemjs-importmap">
+
+  <!-- DEVELOPMENT IMPORTS -->
+  <script type="systemjs-importmap">
+      {   
+        "imports": {
+          "navbar": "http://localhost:4201/main.js",
+          "projects": "http://localhost:4206/main.js",
+          "single-spa": "https://unpkg.com/single-spa@4.3.2/lib/system/single-spa.min.js"
+        }
+      }
+  </script>
+  <link rel="preload" href="https://unpkg.com/single-spa@4.3.2/lib/system/single-spa.min.js" as="script"
+    crossorigin="anonymous" />
+  <script src="https://unpkg.com/zone.js"></script>
+  <script src="https://unpkg.com/import-map-overrides@1.5.0/dist/import-map-overrides.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/3.1.6/system.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/3.1.6/extras/amd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/3.1.6/extras/named-exports.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/3.1.6/extras/named-register.min.js"></script>
+  <script src="https://cdn.ckeditor.com/4.7.0/full-all/ckeditor.js"></script>
+</head>
+
+<body style="margin:0;">
+  <script>
+    System.import('single-spa').then(function (singleSpa) {
+      System.import('navbar').then(navbar1 => {
+        singleSpa.registerApplication(
+          'navbar',
+          () => System.import('navbar'),
+          location => true
+        )
+
+        singleSpa.registerApplication(
+          'charts',
+          () => System.import('charts'),
+          location => location.pathname.startsWith('/charts')
+        );
+
+        singleSpa.registerApplication(
+          'projects',
+          () => System.import('projects'),
+          location => location.pathname.startsWith('/projects')
+        );
+
+        singleSpa.registerApplication(
+          'eod',
+          () => System.import('eod'),
+          location => location.pathname.startsWith('/eod')
+        );
+
+        singleSpa.registerApplication(
+          'timesheet',
+          () => System.import('timesheet'),
+          location => location.pathname.startsWith('/timesheet')
+        )
+
+        singleSpa.registerApplication(
+          'employees',
+          () => System.import('employees'),
+          location => location.pathname.startsWith('/employees')
+        )
+
+        singleSpa.registerApplication(
+          'configuration-app',
+          () => System.import('configuration-app'),
+          location => location.pathname.startsWith('/configurations')
+        )
+      })
+      singleSpa.start();
+
+
+    })
+    setTimeout(() => {
+
+      // importMapOverrides.addOverride('app1', 'http://localhost:4202/main.js');
+      // importMapOverrides.addOverride('app2', 'http://localhost:4201/main.js');
+    }, 2000);
+  </script>
+</body>
+
+</html>

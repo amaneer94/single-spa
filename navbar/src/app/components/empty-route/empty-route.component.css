@@ -1,0 +1,192 @@
+.normal {
+    font-weight: normal;
+    font-size: 15px;    
+    text-transform: uppercase;  
+    margin-top: 2px;
+}
+
+mat-icon {
+    cursor: pointer;
+    margin-top: 2px;
+}
+mat-spinner {
+    margin: auto
+}
+.mat-toolbar.mat-primary {
+    color: #354052 !important;
+}
+/* //////////////// */
+/* dashboard css starts */
+/* //////////////// */
+.col-sm {
+    margin-right: 10px;
+}
+.card img {
+    height: 120px;
+    width: 120px;
+    margin: auto;
+}
+.card:hover {
+    /* box-shadow: rgba(0, 0, 0, 0.1) -1px 2px 8px 0px; */
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    transition: all .2s ease;
+    
+}
+#mainDashboard .col-sm-4{
+    cursor: pointer;
+}
+.card {
+    transition: all .2s ease-in;
+    margin-bottom: 25px;
+}
+
+/* //////////////// */
+/* dashboard css ends */
+/* //////////////// */
+
+/* //////////////// */
+/* login css starts */
+/* //////////////// */
+.login .main-wrapper {
+    height: 100vh;
+    background-repeat: no-repeat;
+    /* background-image: linear-gradient(rgb(58, 120, 146), rgb(109, 147, 119)); */
+    background-image: linear-gradient(rgb(150, 160, 166), rgb(23, 24, 32))
+}
+.login .card-container.card {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+.login .btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+/*
+ * Card component
+ */
+.login .card {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 12%;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.login .profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+/*
+ * Form styles
+ */
+.login .profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.login .reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.login .btn.btn-signin {
+    /*background-color: #4d90fe; */
+    background-color: rgb(104, 145, 162);
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.login .btn.btn-signin:focus {
+    background-color: rgb(20, 79, 100);
+}
+
+.login .forgot-password {
+    margin-top: 15px;
+    color: rgb(104, 145, 162);
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(12, 97, 33);
+}
+.login mat-form-field {
+    width: 100%;
+}
+.login mat-hint {
+    color: #eb3e13;
+}
+/* //////////////// */
+/* login css ends */
+/* //////////////// */
+
+.bar-right-panel {
+    width: 100%;
+}
+.bar-right-panel button {
+    float: right;
+    margin-right: 20px;
+}
+.bar-right-panel mat-icon {
+    font-size: 45px;
+}
+.activeBread {
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 3px;
+}
+.main-wrapper h2{
+    color: #1a2c44; 
+    margin-top: 0; 
+    text-align: center; 
+    text-align: -webkit-center;
+    font-weight: 700; 
+    font-size: 29px;
+    margin-bottom: 20px;
+}

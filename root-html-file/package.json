@@ -1,0 +1,14 @@
+{
+  "name": "root-html-file",
+  "description": "The single-spa root config for coexisting-angular-microfrontends",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve -s -l 4250"
+  },
+  "author": "Joel Denning",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "serve": "^11.0.0"
+  }
+}

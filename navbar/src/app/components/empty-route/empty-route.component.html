@@ -1,0 +1,43 @@
+<mat-toolbar
+    style=" position: initial;background: white !important; box-shadow: 0 2px 1px -2px rgba(0,0,0,.1), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);"
+    *ngIf="isLoggedIn">
+    <mat-icon (click)="changeSection('dashboard'); router.navigate(['/'])">home</mat-icon>
+    <span (click)="changeSection('dashboard'); router.navigate(['/'])" style="cursor: pointer">&nbsp;My App</span>
+    <span>&nbsp;|&nbsp;</span>
+
+    <span *ngIf="!selectedBreads" class="normal">{{dashboardService.appTitle1}}</span>
+    <ng-container *ngFor="let bread of selectedBreads;let i=index">
+        <span class="normal" (click)="navigateToBreadLink(bread)"
+            [class.activeBread]="bread.link">{{bread.title}}</span>
+        <mat-icon *ngIf="i < selectedBreads?.length - 1">arrow_right</mat-icon>
+    </ng-container>
+
+    <div class="bar-right-panel">
+        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    </div>
+    <mat-menu #appMenu="matMenu">
+        <div style="padding: 10px;" *ngIf="user?.primaryEmail?.email">
+            Signed in as<br><span style="font-weight: bold">{{user?.primaryEmail?.email}}</span>
+        </div>
+        <button mat-menu-item (click)="logout()">
+            <mat-icon style="color: #2faee9">power_settings_new</mat-icon>
+            <span>Logout</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>
+
+<ng-container *ngIf="section == 'dashboard'">
+    <div class="container" id="mainDashboard">
+        <div class="row" style="padding-top: 15%">
+            <div class="col-sm-4 card text-center"
+                (click)="router.navigate(['/projects/list']); changeSection('login')">
+                <img class="card-img-top" src="./assets/icons/project.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Projects</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

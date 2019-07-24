@@ -1,0 +1,21 @@
+.mat-toolbar {
+  background: #455a64;
+  /* color: hsla(0, 0%, 100%, .87); */
+}
+
+.title-link {
+  color: white;
+  cursor: pointer;
+}
+
+mat-nav-list > a:active {
+  background-color: #a9acb2;
+}
+
+mat-nav-list > a:focus {
+  background-color: #a9acb2;
+}
+
+mat-nav-list > a:target {
+  background-color: #a9acb2;
+}

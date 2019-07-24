@@ -1,0 +1,91 @@
+<div class="container-fluid">
+  <div class="wrapper">
+    <div class="content-heading btn-add-project">
+      <!-- <strong style="color: rgb(26, 44, 68)">Projects</strong>&nbsp; -->
+      <!-- <div class="action-bar text-right"> -->
+      <button matTooltip="Add New Project" mat-fab color="primary" class="add-btn" routerLink="/projects/project/add">
+        <mat-icon>add</mat-icon>
+      </button>
+      <!-- </div> -->
+    </div>
+    <div style="padding: 0px 10px 10px 10px;">
+      <div class="text-center">
+        <mat-form-field style="width: 50%;">
+          <mat-label>Search Project</mat-label>
+          <input matInput [formControl]="searchControl.control" placeholder="Type name of a project e.g. Excalibur">
+          <mat-icon matSuffix [class.hide]="!searchControl?.waiting">
+            <mat-spinner [diameter]="20"></mat-spinner>
+          </mat-icon>
+          <mat-icon (click)="searchControl?.control?.setValue('')" *ngIf="searchControl?.control?.value" matSuffix>close
+          </mat-icon>
+        </mat-form-field>
+        <mat-form-field style="margin-left:10px;">
+          <mat-select name="viewProjectVteams" [(ngModel)]="config.viewProjectVteams"
+            (selectionChange)="onViewSelectionChange()">
+            <mat-option value="all">All</mat-option>
+            <mat-option value="projects">Only Projects</mat-option>
+            <mat-option value="teams">Only Teams</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-spinner *ngIf="waiting" [diameter]="40"></mat-spinner>
+      <table *ngIf="dataSource" style="width: 100%" mat-table [dataSource]="dataSource" matSort
+        class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="business">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Business </th>
+          <td mat-cell *matCellDef="let element"> {{element.business}} </td>
+        </ng-container> -->
+
+        <ng-container matColumnDef="client">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Client </th>
+          <td mat-cell *matCellDef="let element"> {{element.client?.name}} </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="cost">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
+          <td mat-cell *matCellDef="let element"> {{element.cost}} </td>
+        </ng-container> -->
+
+        <ng-container matColumnDef="payment_mode">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment Mode </th>
+          <td mat-cell *matCellDef="let element"> {{element.payment_mode != "NULL" ? element.payment_mode : ''}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="start_date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.start_date | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estimated_delivery_date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Estimated Delivery Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.estimated_delivery_date | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef style="padding-left:30px;"> Actions </th>
+          <td mat-cell *matCellDef="let row">
+            <button class="btn-edit" matTooltip="Edit Project" mat-button (click)="editProject(row)" tooltip="Edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button class="btn-delete" matTooltip="Delete Project" mat-button (click)="removeProject($event, row)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="viewProject(row)" style="cursor:pointer;">
+        </tr>
+      </table>
+      <mat-paginator (page)="getProjects()" [length]="data?.count" [pageSize]="20"
+        [pageSizeOptions]="[5, 10, 20, 50, 100]">
+      </mat-paginator>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,83 @@
+.container {
+  margin-bottom: 20px;
+}
+.wrapper{
+  padding: 30px;
+  background: white;
+  width: 75%;
+  margin: 0 auto;
+  /* box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12); */
+  box-shadow: rgba(0, 0, 0, 0.1) -1px 2px 8px 0px;
+}
+
+h4{
+  color: rgb(26, 44, 68);
+}
+.dm-container {
+  border: 1px solid lightgray;
+  display: flex;
+  padding: 15px;
+  margin: 20px 10px 10px 0px;
+  flex-direction: column;
+  background-color: white;
+}
+
+.form-actions {
+  display: inline;
+  align-items: right;
+}
+
+.tab-section {
+  margin: 10px 300px 10px 300px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.btn-section {
+  margin-bottom: 25px;
+}
+button.btn-remove{
+  border-radius: 0px;
+  background-color: rgb(26, 44, 68);
+  color: white;
+  border: none;
+}
+button.btn-addmore{
+  border-radius: 0px;
+  background-color: #2faee9;
+  color: white;
+  border:none;
+}
+button.btn-addmore:hover{
+  border-radius: 0px;
+  background-color: #00b5dc;
+  color: white;
+}
+button.btn-cancel{
+  border-radius: 0px;
+  background-color: rgb(26, 44, 68);
+  color: white;
+  border: none;
+  width: 10%;
+}
+button.btn-save{
+  border-radius: 0px;
+  background-color: #2faee9;
+  color: white;
+  border:none;
+  width: 10%;
+}
+button.btn-save:hover{
+  border-radius: 0px;
+  background-color: #00b5dc;
+  color: white;
+  border:none;
+}
+button.btn-addFM{
+  border-radius: 0px;
+  background-color: #2faee9;
+  color: white;
+  border:none;
+}

@@ -1,0 +1,45 @@
+.wrapper {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.content-heading {
+  padding: 5px 0 0 10px;
+  font-size: 24px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-add-project button.add-btn {
+  background-color: rgb(26, 44, 68) !important;
+}
+
+button.btn-edit {
+  color: #2faee9;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  
+}
+
+button.btn-delete {
+  color: #db024a;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+mat-paginator {
+  display: inline !important;
+}
+
+.mat-elevation-z8 {
+  /* box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12); */
+  box-shadow: rgba(0, 0, 0, 0.1) -1px 2px 8px 0px;
+  margin-top: 10px;
+}
+.hide {
+  display: none;
+}
+.text-center mat-icon{
+  cursor: pointer; 
+  font-size: 16px
+}

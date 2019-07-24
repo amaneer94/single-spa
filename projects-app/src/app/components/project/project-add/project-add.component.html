@@ -1,0 +1,99 @@
+<div class="action-bar" style="padding: 20px;">
+  <button mat-stroked-button style="background-color:rgb(26, 44, 68); color: white; border-radius: 0px"
+    routerLink="/projects/list">
+    <i class="fa fa-arrow-left" style="margin-top: -3px"></i>&nbsp;&nbsp;Back
+  </button>
+  <!-- <div class="tab-section">
+    <mat-tab-group animationDuration="0ms">
+      <mat-tab label="Targets">
+        <app-target></app-target>
+      </mat-tab>
+      <mat-tab label="Teams">Team</mat-tab>
+      <mat-tab label="ActivityLog">Activity Log</mat-tab>
+      <mat-tab label="Settings">Settings</mat-tab>
+    </mat-tab-group>
+  </div> -->
+</div>
+<div class="container">
+  <div class="wrapper">
+    <h4>
+      <strong>{{ this.model._id? 'Edit': 'Add' }} Project</strong>
+    </h4>
+    <div style="margin-bottom: 10px; font-size: 14px; color: #999999;" *ngIf="model.id">
+      <span>Project ID # {{model.id}}</span>
+    </div>
+    <form class="form-content" #form="ngForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <mat-form-field>
+              <input (change)="onNameChange()" #proName="ngModel" matInput placeholder="Name" name="name" [(ngModel)]="model.name" required>
+              <mat-error>
+                <span *ngIf="proName.errors?.required">Name is required.</span>
+                <span *ngIf="proName.errors?.duplicate">Project with given name already exists.</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <mat-form-field>
+              <mat-select placeholder="Billing Payment Mode" name="payment_mode" [(ngModel)]="model.payment_mode">
+                <mat-option value="Cash">Cash</mat-option>
+                <mat-option value="Cheque">Cheque</mat-option>
+                <mat-option value="Credit Card">Credit Card</mat-option>
+                <mat-option value="Paypal">Paypal</mat-option>
+                <mat-option value="Stripe">Stripe</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <mat-form-field (click)="picker1.opened = true">
+              <input matInput [matDatepicker]="picker1" name="start_date" placeholder="Start Date"
+                [(ngModel)]="model.start_date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <mat-form-field (click)="picker2.opened = true">
+              <input matInput [matDatepicker]="picker2" name="estimated_delivery_date"
+                placeholder="Estimated Delivery Date" [(ngModel)]="model.estimated_delivery_date">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <mat-form-field>
+              <mat-select placeholder="Status" name="run_level_name" [(ngModel)]="model.run_level_name">
+                <mat-option value="1">Active</mat-option>
+                <mat-option value="4">Complete</mat-option>
+                <mat-option value="2">Inactive</mat-option>
+                <mat-option value="3">On Hold</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field>
+            <textarea id="note" matInput placeholder="Description" name="description"
+              [(ngModel)]="model.description"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+    <div class="action-bar text-right">
+      <button mat-stroked-button routerLink="/projects/list" class="btn-cancel">Cancel</button>
+      &nbsp;
+      <button mat-stroked-button color="primary" (click)="onSubmit()"
+        class="btn-save">{{ this.model._id? 'Update': 'Save' }}</button>
+    </div>
+  </div>
+
+</div>
